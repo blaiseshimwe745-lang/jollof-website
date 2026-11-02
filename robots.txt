@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /karte.html
+Disallow: /bewerten.html
+Sitemap: https://jollof.at/sitemap.xml

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Speisekarte – JOLLOF Graz</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Die ganze Speisekarte von JOLLOF Graz mit Fotos und Preisen: Jollof Rice, Egusi, Okro, Pepper Soup, Pounded Yam, Fleisch, Fisch und Getränke.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f7f5ec;--cream:#ebeedd;--ink:#16201a;--muted:#5d685c;--line:#dce2cf;--green:#3f8a2e;--green-d:#183018;--red:#c8322b;--gold:#e8a33a;
+  --serif:'Syncopate',sans-serif;--sans:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#dfe5d3;color:var(--ink);font:400 15.5px/1.45 var(--sans);-webkit-font-smoothing:antialiased}
+.app{max-width:520px;margin:0 auto;background:var(--paper);min-height:100vh;padding-bottom:90px}
+img{display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+
+.top{position:relative;height:170px;overflow:hidden;background:var(--green-d)}
+.top img.bg{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,31,16,.15),rgba(15,31,16,.85))}
+.top .bar{position:absolute;left:16px;right:16px;bottom:14px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;color:#fff}
+.top .brand{display:flex;align-items:center;gap:10px}
+.top .brand img{width:46px;height:46px;border-radius:10px}
+.top h1{font:400 28px/1 var(--serif)}
+.top small{display:block;font:600 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;opacity:.85;margin-top:6px}
+.lang{display:flex;background:rgba(255,255,255,.18);border-radius:20px;padding:3px;backdrop-filter:blur(4px)}
+.lang button{padding:5px 11px;border-radius:16px;font-weight:600;font-size:13px;color:#fff}
+.lang button.on{background:#fff;color:var(--ink)}
+.band{height:8px;background:repeating-linear-gradient(90deg,var(--gold) 0 40px,var(--red) 40px 50px,var(--green) 50px 90px,var(--paper) 90px 95px)}
+.back:empty{display:none}.back{display:block;padding:10px 16px;font-size:13.5px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+
+.tabs{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line);display:flex;gap:4px;overflow-x:auto;padding:0 10px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:none;padding:14px 8px 12px;font-weight:600;font-size:14.5px;color:var(--muted);border-bottom:2.5px solid transparent;text-decoration:none;white-space:nowrap}
+.tabs a.on{color:var(--ink);border-color:var(--green)}
+
+.hint{margin:14px 16px 0;padding:12px 14px;background:var(--cream);border-radius:8px;font-size:13.5px;color:#3d473c}
+.hint b{color:var(--ink)}
+
+h2.cat{font:400 22px var(--serif);padding:26px 16px 6px;scroll-margin-top:52px}
+.item{display:grid;grid-template-columns:1fr 92px;gap:14px;padding:15px 16px;border-bottom:1px solid var(--line);text-align:left;width:100%}
+.item:active{background:var(--cream)}
+.item h3{font:600 16.5px/1.25 var(--sans)}
+.item p{font-size:14px;color:var(--muted);margin:5px 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.item .price{font-weight:700;font-size:15.5px;color:var(--red)}
+.item .price small{font-weight:500;color:var(--muted);font-size:12.5px}
+.item .ph{width:92px;height:92px;border-radius:8px;overflow:hidden;background:var(--cream)}
+.item .ph img{width:100%;height:100%;object-fit:cover}
+.item.noimg{grid-template-columns:1fr}
+.item .cnt{display:inline-block;margin-left:8px;background:var(--green);color:#fff;border-radius:10px;padding:1px 8px;font-size:12px;font-weight:700;vertical-align:2px}
+
+.review{margin:28px 16px 10px;padding:22px 20px;border-radius:10px;background:var(--green-d);color:#e6eedf}
+.review .stars{color:var(--gold);font-size:20px;letter-spacing:2px}
+.review h3{font:400 22px/1.2 var(--serif);color:#fff;margin:8px 0 6px}
+.review p{font-size:14px;margin-bottom:16px;color:#cfdcc6}
+.review a{display:flex;align-items:center;justify-content:center;height:48px;border-radius:6px;background:#fff;color:var(--ink);font-weight:700;text-decoration:none}
+.legal{padding:18px 16px 40px;font-size:12px;color:var(--muted);line-height:1.6}
+
+/* Merkliste */
+.listbar{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);width:calc(100% - 24px);max-width:496px;z-index:30;display:none;align-items:center;justify-content:space-between;
+  background:var(--green);color:#fff;border-radius:10px;padding:0 18px;height:56px;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.listbar.on{display:flex}
+
+/* Detail */
+.sheet-bg{position:fixed;inset:0;background:rgba(10,20,10,.5);z-index:40;opacity:0;pointer-events:none;transition:opacity .2s}
+.sheet{position:fixed;left:50%;bottom:0;width:100%;max-width:520px;transform:translate(-50%,100%);background:var(--paper);border-radius:16px 16px 0 0;z-index:41;transition:transform .25s;max-height:92vh;overflow:auto}
+.open .sheet-bg{opacity:1;pointer-events:auto}
+.open .sheet{transform:translate(-50%,0)}
+.sheet .hero{height:280px;position:relative;background:var(--green-d)}
+.sheet .hero img{width:100%;height:100%;object-fit:cover}
+.sheet .x{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;font-size:20px;line-height:1}
+.sheet .in{padding:20px 18px 26px;position:relative}
+.sheet .in>.x{position:absolute;top:14px;right:14px;background:var(--cream)}
+.sheet h2{font:400 26px/1.15 var(--serif);display:flex;justify-content:space-between;gap:12px;padding-right:4px}
+.sheet h2 span{font:700 19px var(--sans);white-space:nowrap;padding-top:4px;color:var(--red)}
+.sheet .what{margin:12px 0 16px;font-size:15px;color:#3a443a}
+.pairs h4{font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.pairs{margin-bottom:18px}
+.pair{display:flex;align-items:center;gap:12px;width:100%;padding:9px;border:1.5px dashed #c9d3b8;border-radius:8px;margin-bottom:8px;text-align:left}
+.pair img{width:46px;height:46px;border-radius:6px;object-fit:cover;background:var(--cream)}
+.pair div{flex:1;font-weight:600}
+.pair em{font-style:normal;font-weight:700;color:var(--red)}
+.pair.on{border-style:solid;border-color:var(--green);background:#eef4e6}
+.sheet .order{display:flex;align-items:center;justify-content:center;height:52px;border-radius:8px;background:var(--green);color:#fff;font-weight:700;font-size:16px;width:100%}
+.sheet .sub{font-size:12.5px;color:var(--muted);text-align:center;margin-top:9px}
+.lrow{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.lrow button{color:var(--red);font-weight:700;padding:0 6px}
+.ltotal{display:flex;justify-content:space-between;font:400 24px var(--serif);padding:16px 0}
+h1,h2.cat,.sheet h2,.review h3{text-transform:uppercase;letter-spacing:-.02em}
+.top h1{font-weight:700;font-size:24px}
+h2.cat{font-size:19px}.sheet h2{font-size:20px;line-height:1.1}.review h3{font-size:18px}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <div class="top">
+    <img class="bg" src="img/jollof-rice.webp" alt="">
+    <div class="bar">
+      <div class="brand"><img src="img/logo.png" alt="JOLLOF"><div><h1>JOLLOF</h1><small data-t="kitchen">African Restaurant Graz</small></div></div>
+      <div class="lang"><button class="on" data-l="de">DE</button><button data-l="en">EN</button></div>
+    </div>
+  </div>
+  <div class="band"></div>
+  <div class="back" id="tischzeile"></div>
+  <nav class="tabs" id="tabs"></nav>
+  <div class="hint" data-t="hint"></div>
+  <div id="list"></div>
+  <div class="review">
+    <div class="stars">★★★★★</div>
+    <h3 data-t="revH"></h3>
+    <p data-t="revP"></p>
+    <a id="revLink" href="#" data-t="revB"></a>
+  </div>
+  <div class="legal" data-t="legal"></div>
+</div>
+<button class="listbar" id="listbar"></button>
+<div class="sheet-bg" id="sbg"></div>
+<div class="sheet" id="sheet"></div>
+
+<script>
+const M=[{"id": "k6-22", "c": "Beliebte Kombis", "img": "img/egusi-soup.webp", "p": 11.6, "hint": "", "de": ["Egusi Soup + Pounded Yam", "Sämige Suppe aus gemahlenen Melonenkernen mit Blattgemüse, Fleisch und Fisch. Dazu: Pounded Yam – Gestampfte Yamswurzel. Ein Stück abzupfen und in die Suppe tunken."], "en": ["Egusi Soup + Pounded Yam", "Rich soup of ground melon seeds with leafy greens, meat and fish. With: Pounded Yam – Pounded yam. Pinch off a piece and dip it into the soup."]}, {"id": "k16-3", "c": "Beliebte Kombis", "img": "img/stew.webp", "p": 11.6, "hint": "", "de": ["Stew + White Rice", "Rote Tomaten-Paprika-Soße mit großen Fleischstücken. Mit Reis, Bohnen oder Kochbanane. Dazu: White Rice – Weißer Reis als Beilage – passt zu Stew."], "en": ["Stew + White Rice", "Red tomato and pepper stew with large pieces of meat. With rice, beans or plantain. With: White Rice – Plain white rice as a side – goes with stew."]}, {"id": "k15-4", "c": "Beliebte Kombis", "img": "img/ofe-akwu.webp", "p": 12.6, "hint": "", "de": ["Ofe Akwu + Rice and Beans", "Palmfrucht-Eintopf mit Kutteln, Rinderhaut und Fleisch. Mit Reis oder Bohnen. Dazu: Rice and Beans – Reis und braune Bohnen zusammen gekocht – am besten mit Ofe Akwu."], "en": ["Ofe Akwu + Rice and Beans", "Palm-fruit stew with tripe, cow skin and meat. With rice or beans. With: Rice and Beans – Rice and brown beans cooked together – best with Ofe Akwu."]}, {"id": "k7-23", "c": "Beliebte Kombis", "img": "img/okro-soup.webp", "p": 11.6, "hint": "", "de": ["Okro Soup + Semovita", "Okra-Suppe mit Blattgemüse, Palmöl, Fleisch und Fisch. Dazu: Semovita – Swallow aus Hartweizengrieß."], "en": ["Okro Soup + Semovita", "Okra soup with leafy greens, palm oil, meat and fish. With: Semovita – Swallow made from durum wheat semolina."]}, {"id": "k9-22", "c": "Beliebte Kombis", "img": "img/afang-soup.webp", "p": 13.2, "hint": "", "de": ["Afang Soup + Pounded Yam", "Fein geschnittene Afang- und Wasserblätter mit Fleisch und Fisch. Dazu: Pounded Yam – Gestampfte Yamswurzel. Ein Stück abzupfen und in die Suppe tunken."], "en": ["Afang Soup + Pounded Yam", "Finely shredded afang and waterleaf with meat and fish. With: Pounded Yam – Pounded yam. Pinch off a piece and dip it into the soup."]}, {"id": "k8-25", "c": "Beliebte Kombis", "img": "img/vegetable-soup.webp", "p": 13.6, "hint": "", "de": ["Vegetable Soup + Amala", "Viel dunkles Blattgemüse mit Fleisch, Fisch und Schnecken in Palmöl. Dazu: Amala – Dunkler Swallow aus Yamswurzel-Mehl."], "en": ["Vegetable Soup + Amala", "Lots of dark leafy greens with meat, fish and periwinkles in palm oil. With: Amala – Dark swallow made from yam flour."]}, {"id": "g1", "c": "Reis & Nudeln", "img": "img/jollof-rice.webp", "p": 9.9, "hint": "", "soup": false, "de": ["Jollof Rice", "Westafrikas berühmtester Reis: in Tomaten-Paprika-Soße gegart, rauchig, mit knusprigen Stellen vom Topfboden."], "en": ["Jollof Rice", "West Africa's most famous rice: cooked in tomato and pepper sauce, smoky, with crispy bits from the bottom of the pot."]}, {"id": "g2", "c": "Reis & Nudeln", "img": "img/fried-rice.webp", "p": 14.9, "hint": "", "soup": false, "de": ["Fried Rice", "Gebratener Reis mit Erbsen, Karotten und Gemüse, dazu Hähnchen."], "en": ["Fried Rice", "Fried rice with peas, carrots and vegetables, served with chicken."]}, {"id": "g3", "c": "Reis & Nudeln", "img": "img/white-rice.webp", "p": 1.6, "hint": "", "soup": false, "de": ["White Rice", "Weißer Reis als Beilage – passt zu Stew."], "en": ["White Rice", "Plain white rice as a side – goes with stew."]}, {"id": "g4", "c": "Reis & Nudeln", "img": "img/rice-and-beans.webp", "p": 2.6, "hint": "mit Suppe 12,60 €", "soup": false, "de": ["Rice and Beans", "Reis und braune Bohnen zusammen gekocht – am besten mit Ofe Akwu."], "en": ["Rice and Beans", "Rice and brown beans cooked together – best with Ofe Akwu."]}, {"id": "g5", "c": "Reis & Nudeln", "img": "img/indomie.webp", "p": 10, "hint": "", "soup": false, "de": ["Indomie", "Gebratene Indomie-Nudeln mit Karotten, Paprika und Frühlingszwiebeln."], "en": ["Indomie", "Stir-fried Indomie noodles with carrots, peppers and spring onions."]}, {"id": "g6", "c": "Suppen & Eintöpfe", "img": "img/egusi-soup.webp", "p": 10, "hint": "", "soup": true, "de": ["Egusi Soup", "Sämige Suppe aus gemahlenen Melonenkernen mit Blattgemüse, Fleisch und Fisch."], "en": ["Egusi Soup", "Rich soup of ground melon seeds with leafy greens, meat and fish."]}, {"id": "g7", "c": "Suppen & Eintöpfe", "img": "img/okro-soup.webp", "p": 10, "hint": "", "soup": true, "de": ["Okro Soup", "Okra-Suppe mit Blattgemüse, Palmöl, Fleisch und Fisch."], "en": ["Okro Soup", "Okra soup with leafy greens, palm oil, meat and fish."]}, {"id": "g8", "c": "Suppen & Eintöpfe", "img": "img/vegetable-soup.webp", "p": 12, "hint": "", "soup": true, "de": ["Vegetable Soup", "Viel dunkles Blattgemüse mit Fleisch, Fisch und Schnecken in Palmöl."], "en": ["Vegetable Soup", "Lots of dark leafy greens with meat, fish and periwinkles in palm oil."]}, {"id": "g9", "c": "Suppen & Eintöpfe", "img": "img/afang-soup.webp", "p": 11.6, "hint": "", "soup": true, "de": ["Afang Soup", "Fein geschnittene Afang- und Wasserblätter mit Fleisch und Fisch."], "en": ["Afang Soup", "Finely shredded afang and waterleaf with meat and fish."]}, {"id": "g10", "c": "Suppen & Eintöpfe", "img": "img/bitterleaf-soup.webp", "p": 11.9, "hint": "", "soup": true, "de": ["Bitterleaf Soup", "Suppe mit Bitterblatt (Ofe Onugbu) und Fleisch."], "en": ["Bitterleaf Soup", "Bitterleaf soup (ofe onugbu) with meat."]}, {"id": "g11", "c": "Suppen & Eintöpfe", "img": "img/oha-soup.webp", "p": 12, "hint": "", "soup": true, "de": ["Oha Soup", "Dicke Suppe mit Oha-Blättern und Fleisch."], "en": ["Oha Soup", "Thick soup with oha leaves and meat."]}, {"id": "g12", "c": "Suppen & Eintöpfe", "img": "img/ogbolo-soup.webp", "p": 10, "hint": "", "soup": true, "de": ["Ogbolo Soup", "Ogbono-Suppe mit gemischtem Fleisch."], "en": ["Ogbolo Soup", "Ogbono soup with assorted meat."]}, {"id": "g13", "c": "Suppen & Eintöpfe", "img": "img/yam-porridge.webp", "p": 11, "hint": "", "soup": true, "de": ["Yam Porridge", "Yamswurzel-Stücke in Palmöl-Soße mit Gemüse (Asaro)."], "en": ["Yam Porridge", "Yam pieces in palm-oil sauce with vegetables (asaro)."]}, {"id": "g14", "c": "Suppen & Eintöpfe", "img": "img/nsala-soup.webp", "p": 10, "hint": "", "soup": true, "de": ["Nsala Soup", "Helle Suppe (White Soup) mit Fleisch, Kutteln und Fisch."], "en": ["Nsala Soup", "Light white soup with meat, tripe and fish."]}, {"id": "g15", "c": "Suppen & Eintöpfe", "img": "img/ofe-akwu.webp", "p": 10, "hint": "", "soup": true, "de": ["Ofe Akwu", "Palmfrucht-Eintopf mit Kutteln, Rinderhaut und Fleisch. Mit Reis oder Bohnen."], "en": ["Ofe Akwu", "Palm-fruit stew with tripe, cow skin and meat. With rice or beans."]}, {"id": "g16", "c": "Suppen & Eintöpfe", "img": "img/stew.webp", "p": 10, "hint": "", "soup": true, "de": ["Stew", "Rote Tomaten-Paprika-Soße mit großen Fleischstücken. Mit Reis, Bohnen oder Kochbanane."], "en": ["Stew", "Red tomato and pepper stew with large pieces of meat. With rice, beans or plantain."]}, {"id": "g17", "c": "Pepper Soups", "img": "img/goat-meat-pepper-soup.webp", "p": 10, "hint": "", "soup": true, "de": ["Goat Meat Pepper Soup", "Klare, scharfe Brühe mit Ziegenfleisch am Knochen."], "en": ["Goat Meat Pepper Soup", "Clear, spicy broth with goat meat on the bone."]}, {"id": "g18", "c": "Pepper Soups", "img": "img/chicken-pepper-soup.webp", "p": 10, "hint": "", "soup": true, "de": ["Chicken Pepper Soup", "Scharfe Brühe mit Hähnchenstücken."], "en": ["Chicken Pepper Soup", "Spicy broth with chicken pieces."]}, {"id": "g19", "c": "Pepper Soups", "img": "img/tilapia-soup.webp", "p": 10, "hint": "", "soup": true, "de": ["Tilapia Soup", "Scharfe Brühe mit Tilapia."], "en": ["Tilapia Soup", "Spicy broth with tilapia."]}, {"id": "g20", "c": "Pepper Soups", "img": "img/catfish-soup.webp", "p": 10, "hint": "", "soup": true, "de": ["Catfish Soup", "Scharfe Brühe mit Wels (Catfish)."], "en": ["Catfish Soup", "Spicy broth with catfish."]}, {"id": "g22", "c": "Fufu & Beilagen (Swallow)", "img": "img/pounded-yam.webp", "p": 1.6, "hint": "", "soup": false, "de": ["Pounded Yam", "Gestampfte Yamswurzel. Ein Stück abzupfen und in die Suppe tunken."], "en": ["Pounded Yam", "Pounded yam. Pinch off a piece and dip it into the soup."]}, {"id": "g23", "c": "Fufu & Beilagen (Swallow)", "img": "img/semovita.webp", "p": 1.6, "hint": "", "soup": false, "de": ["Semovita", "Swallow aus Hartweizengrieß."], "en": ["Semovita", "Swallow made from durum wheat semolina."]}, {"id": "g24", "c": "Fufu & Beilagen (Swallow)", "img": "img/purre.webp", "p": 1.6, "hint": "", "soup": false, "de": ["Purre", "Swallow als Beilage zur Suppe."], "en": ["Purre", "Swallow as a side for soup."]}, {"id": "g25", "c": "Fufu & Beilagen (Swallow)", "img": "img/amala.webp", "p": 1.6, "hint": "", "soup": false, "de": ["Amala", "Dunkler Swallow aus Yamswurzel-Mehl."], "en": ["Amala", "Dark swallow made from yam flour."]}, {"id": "g26", "c": "Fufu & Beilagen (Swallow)", "img": "img/wheat.webp", "p": 1.6, "hint": "", "soup": false, "de": ["Wheat", "Swallow aus Weizen."], "en": ["Wheat", "Swallow made from wheat."]}, {"id": "g28", "c": "Fufu & Beilagen (Swallow)", "img": "img/garri.webp", "p": 1.6, "hint": "", "soup": false, "de": ["Garri", "Swallow aus Garri (Maniok), auch Eba genannt."], "en": ["Garri", "Swallow made from garri (cassava), also called eba."]}, {"id": "g29", "c": "Fufu & Beilagen (Swallow)", "img": "img/akamu.webp", "p": 4.9, "hint": "", "soup": false, "de": ["Akamu", "Cremiger Maisbrei (Pap / Ogi), passt zu Akara."], "en": ["Akamu", "Creamy corn porridge (pap / ogi), goes with akara."]}, {"id": "g30", "c": "Bohnen, Snacks & Extras", "img": "img/akara.webp", "p": 1.5, "hint": "pro Stück", "soup": false, "de": ["Akara", "Frittierte Bohnen-Bällchen."], "en": ["Akara", "Deep-fried bean fritters."]}, {"id": "g31", "c": "Bohnen, Snacks & Extras", "img": "img/moi-moi.webp", "p": 3.5, "hint": "", "soup": false, "de": ["Moi Moi", "Gedämpfter Bohnenpudding."], "en": ["Moi Moi", "Steamed bean pudding."]}, {"id": "g32", "c": "Bohnen, Snacks & Extras", "img": "img/ukwa.webp", "p": 24.9, "hint": "", "soup": false, "de": ["Ukwa", "Brotfrucht-Eintopf mit Paprika."], "en": ["Ukwa", "Breadfruit porridge with peppers."]}, {"id": "g33", "c": "Bohnen, Snacks & Extras", "img": "img/beans.webp", "p": 10, "hint": "", "soup": false, "de": ["Beans", "Black-Eyed Beans, nigerianisch gekocht."], "en": ["Beans", "Black-eyed beans, Nigerian style."]}, {"id": "g34", "c": "Bohnen, Snacks & Extras", "img": "img/abacha.webp", "p": 15, "hint": "", "soup": false, "de": ["Abacha", "African Salad aus Maniok-Streifen in Palmöl-Dressing, mit Fisch."], "en": ["Abacha", "African salad of shredded cassava in palm-oil dressing, with fish."]}, {"id": "g35", "c": "Bohnen, Snacks & Extras", "img": "img/roasted-plantain.webp", "p": 2.5, "hint": "pro Stück", "soup": false, "de": ["Roasted Plantain", "Geröstete reife Kochbananen (Boli)."], "en": ["Roasted Plantain", "Roasted ripe plantains (boli)."]}, {"id": "g36", "c": "Bohnen, Snacks & Extras", "img": "img/fried-egg.webp", "p": 3.9, "hint": "", "soup": false, "de": ["Fried Egg", "Rührei."], "en": ["Fried Egg", "Scrambled egg."]}, {"id": "g76", "c": "Bohnen, Snacks & Extras", "img": "img/meat-roll.webp", "p": 2, "hint": "", "soup": false, "de": ["Meat Roll", "Frittierte Teigrollen mit Fleischfüllung."], "en": ["Meat Roll", "Deep-fried pastry rolls with meat filling."]}, {"id": "g77", "c": "Bohnen, Snacks & Extras", "img": "img/egg-roll.webp", "p": 2, "hint": "", "soup": false, "de": ["Egg Roll", "Frittierte Teigkugel mit ganzem Ei."], "en": ["Egg Roll", "Deep-fried dough ball with a whole egg inside."]}, {"id": "g37", "c": "Fleisch & Fisch", "img": "img/fried-chicken.webp", "p": 3, "hint": "", "soup": false, "de": ["Fried Chicken", "Knusprig frittiertes Hähnchen."], "en": ["Fried Chicken", "Crispy deep-fried chicken."]}, {"id": "g38", "c": "Fleisch & Fisch", "img": "img/nkwobi.webp", "p": 24.9, "hint": "", "soup": false, "de": ["Nkwobi (Goathead)", "Ziegenkopf in scharfer Palmöl-Soße mit Zwiebeln."], "en": ["Nkwobi (Goathead)", "Goat head in spicy palm-oil sauce with onions."]}, {"id": "g39", "c": "Fleisch & Fisch", "img": "img/cowleg-without-bone-nkwobi.webp", "p": 24.9, "hint": "", "soup": false, "de": ["Cowleg without bone / Nkwobi", "Rinderfuß ohne Knochen in scharfer Palmöl-Soße."], "en": ["Cowleg without bone / Nkwobi", "Boneless cow leg in spicy palm-oil sauce."]}, {"id": "g40", "c": "Fleisch & Fisch", "img": "img/kpomo.webp", "p": 24.9, "hint": "", "soup": false, "de": ["Kpomo", "Rinderhaut in scharfer Soße mit Zwiebeln."], "en": ["Kpomo", "Cow skin in spicy sauce with onions."]}, {"id": "g41", "c": "Fleisch & Fisch", "img": "img/snail.webp", "p": 24.9, "hint": "", "soup": false, "de": ["Snail", "Schnecken in scharfer Paprika-Soße."], "en": ["Snail", "Snails in spicy pepper sauce."]}, {"id": "g42", "c": "Fleisch & Fisch", "img": "img/mangala.webp", "p": 24.9, "hint": "", "soup": false, "de": ["Mangala", "Geräucherter Trockenfisch."], "en": ["Mangala", "Smoked dried fish."]}, {"id": "g43", "c": "Fleisch & Fisch", "img": "img/makrel-fish.webp", "p": 3, "hint": "", "soup": false, "de": ["Makrel Fish", "Gebratene Makrele."], "en": ["Makrel Fish", "Fried mackerel."]}, {"id": "g44", "c": "Fleisch & Fisch", "img": "img/menuza-fish.webp", "p": 3, "hint": "", "soup": false, "de": ["Menuza Fish", "Kleine frittierte Fische."], "en": ["Menuza Fish", "Small fried fish."]}, {"id": "g45", "c": "Fleisch & Fisch", "img": "img/catfish-grill.webp", "p": 25, "hint": "", "soup": false, "de": ["Catfish Grill", "Ganzer gegrillter Wels mit würziger Kruste."], "en": ["Catfish Grill", "Whole grilled catfish with a spicy crust."]}, {"id": "g46", "c": "Fleisch & Fisch", "img": "img/tilapia-grill.webp", "p": 12, "hint": "mit Yam, Kartoffel oder Plantain", "soup": false, "de": ["Tilapia Grill", "Ganze gegrillte Tilapia mit Yam, Kartoffeln oder Kochbanane."], "en": ["Tilapia Grill", "Whole grilled tilapia with yam, potatoes or plantain."]}, {"id": "g47", "c": "Fleisch & Fisch", "img": "img/stockfish.webp", "p": 25, "hint": "", "soup": false, "de": ["Stockfish", "Stockfisch (Okporoko)."], "en": ["Stockfish", "Stockfish (okporoko)."]}, {"id": "g48", "c": "Beilagen & Salat", "img": "img/fried-plantain.webp", "p": 3, "hint": "10 Stück", "soup": false, "de": ["Fried Plantain", "Frittierte reife Kochbananen (Dodo)."], "en": ["Fried Plantain", "Fried ripe plantain (dodo)."]}, {"id": "g49", "c": "Beilagen & Salat", "img": "img/fried-yam.webp", "p": 3, "hint": "8 Stück", "soup": false, "de": ["Fried Yam", "Frittierte Yamswurzel."], "en": ["Fried Yam", "Fried yam."]}, {"id": "g50", "c": "Beilagen & Salat", "img": "img/potato-fried.webp", "p": 3, "hint": "8 Stück", "soup": false, "de": ["Potato Fried", "Gebratene Kartoffeln."], "en": ["Potato Fried", "Fried potatoes."]}, {"id": "g52", "c": "Beilagen & Salat", "img": "img/normaler-salat.webp", "p": 4, "hint": "", "soup": false, "de": ["Normaler Salat", "Gemischter Salat."], "en": ["Normaler Salat", "Mixed salad."]}, {"id": "g53", "c": "Beilagen & Salat", "img": null, "p": 4, "hint": "", "soup": false, "de": ["Steirischer Salat", "Steirischer Salat."], "en": ["Steirischer Salat", "Styrian salad."]}, {"id": "d54", "c": "Bier", "drink": 1, "p": 3.5, "de": ["Guinness Foreign Extra Stout 325 ml", "Stout, Nigeria"], "en": ["Guinness Foreign Extra Stout 325 ml", ""]}, {"id": "d55", "c": "Bier", "drink": 1, "p": 4.5, "de": ["Guinness Special Export 33 cl", "Stout"], "en": ["Guinness Special Export 33 cl", ""]}, {"id": "d56", "c": "Bier", "drink": 1, "p": 4.9, "de": ["Gulder 60 cl", "Lager, Nigeria"], "en": ["Gulder 60 cl", ""]}, {"id": "d57", "c": "Bier", "drink": 1, "p": 3, "de": ["Heineken 33 cl", "Lager"], "en": ["Heineken 33 cl", ""]}, {"id": "d58", "c": "Bier", "drink": 1, "p": 3, "de": ["Puntigamer 0,5 l", "Lager, Graz"], "en": ["Puntigamer 0,5 l", ""]}, {"id": "d59", "c": "Malzgetränke (alkoholfrei)", "drink": 1, "p": 3.5, "de": ["Maltina 33 cl", "Malzgetränk, alkoholfrei"], "en": ["Maltina 33 cl", ""]}, {"id": "d60", "c": "Malzgetränke (alkoholfrei)", "drink": 1, "p": 2.5, "de": ["Malta Guinness 330 ml", "Malzgetränk, alkoholfrei"], "en": ["Malta Guinness 330 ml", ""]}, {"id": "d61", "c": "Malzgetränke (alkoholfrei)", "drink": 1, "p": 2.5, "de": ["Vita Malt Classic 330 ml", "Malzgetränk, alkoholfrei"], "en": ["Vita Malt Classic 330 ml", ""]}, {"id": "d62", "c": "Malzgetränke (alkoholfrei)", "drink": 1, "p": 2, "de": ["Hyper Malt 330 ml", "Malzgetränk, alkoholfrei, Dose"], "en": ["Hyper Malt 330 ml", ""]}, {"id": "d63", "c": "Malzgetränke (alkoholfrei)", "drink": 1, "p": 2, "de": ["Top Malt 330 ml", "Malzgetränk, alkoholfrei, Dose"], "en": ["Top Malt 330 ml", ""]}, {"id": "d64", "c": "Softdrinks", "drink": 1, "p": 2.5, "de": ["Coca-Cola 330 ml", "Dose"], "en": ["Coca-Cola 330 ml", ""]}, {"id": "d65", "c": "Softdrinks", "drink": 1, "p": 2.5, "de": ["Sprite 330 ml", "Dose"], "en": ["Sprite 330 ml", ""]}, {"id": "d66", "c": "Softdrinks", "drink": 1, "p": 2.5, "de": ["Fanta Orange 330 ml", "Dose"], "en": ["Fanta Orange 330 ml", ""]}, {"id": "d67", "c": "Softdrinks", "drink": 1, "p": 3.9, "de": ["Fanta Orange 50 cl", "Glasflasche"], "en": ["Fanta Orange 50 cl", ""]}, {"id": "d68", "c": "Softdrinks", "drink": 1, "p": 2.5, "de": ["Old Jamaica Ginger Beer 330 ml", "Ingwerlimonade, alkoholfrei, Dose"], "en": ["Old Jamaica Ginger Beer 330 ml", ""]}, {"id": "d69", "c": "Afrikanische Spezialitäten", "drink": 1, "p": 3.9, "de": ["Zobo Drink 500 ml", "Hibiskus-Getränk"], "en": ["Zobo Drink 500 ml", ""]}, {"id": "d70", "c": "Afrikanische Spezialitäten", "drink": 1, "p": 5.9, "de": ["Nkulenu's Palm Drink 625 ml", "Palmsaft-Getränk, Ghana"], "en": ["Nkulenu's Palm Drink 625 ml", ""]}, {"id": "d71", "c": "Afrikanische Spezialitäten", "drink": 1, "p": 6.5, "de": ["Jinjo Ginger Drink 1000 ml", "Ingwer-Getränk, extra stark"], "en": ["Jinjo Ginger Drink 1000 ml", ""]}, {"id": "d72", "c": "Soja- & Milchdrinks", "drink": 1, "p": 2.9, "de": ["Vitamilk Original 300 ml", "Sojadrink"], "en": ["Vitamilk Original 300 ml", ""]}, {"id": "d73", "c": "Soja- & Milchdrinks", "drink": 1, "p": 2.9, "de": ["Vitamilk Banana 300 ml", "Sojadrink Banane"], "en": ["Vitamilk Banana 300 ml", ""]}, {"id": "d74", "c": "Soja- & Milchdrinks", "drink": 1, "p": 2.9, "de": ["Vitamilk Strawberry 300 ml", "Sojadrink Erdbeere"], "en": ["Vitamilk Strawberry 300 ml", ""]}, {"id": "d75", "c": "Soja- & Milchdrinks", "drink": 1, "p": 2.9, "de": ["V-Soy Multi-Grain 300 ml", "Sojadrink mit Getreide"], "en": ["V-Soy Multi-Grain 300 ml", ""]}];const CATS={"Beliebte Kombis": {"de": "Beliebte Kombis", "en": "Popular combos"}, "Reis & Nudeln": {"de": "Reis & Nudeln", "en": "Rice & Noodles"}, "Suppen & Eintöpfe": {"de": "Suppen & Eintöpfe", "en": "Soups & Stews"}, "Pepper Soups": {"de": "Pepper Soups", "en": "Pepper Soups"}, "Fufu & Beilagen (Swallow)": {"de": "Fufu & Beilagen (Swallow)", "en": "Swallow (Fufu & Co.)"}, "Bohnen, Snacks & Extras": {"de": "Bohnen, Snacks & Extras", "en": "Beans, Snacks & Extras"}, "Fleisch & Fisch": {"de": "Fleisch & Fisch", "en": "Meat & Fish"}, "Beilagen & Salat": {"de": "Beilagen & Salat", "en": "Sides & Salad"}, "Bier": {"de": "Bier", "en": "Beer"}, "Malzgetränke (alkoholfrei)": {"de": "Malzgetränke (alkoholfrei)", "en": "Malt drinks (alcohol-free)"}, "Softdrinks": {"de": "Softdrinks", "en": "Soft drinks"}, "Afrikanische Spezialitäten": {"de": "Afrikanische Spezialitäten", "en": "African specials"}, "Soja- & Milchdrinks": {"de": "Soja- & Milchdrinks", "en": "Soy & milk drinks"}};const SIDES=[{"n": "Pounded Yam", "p": 1.6, "img": "img/pounded-yam.webp"}, {"n": "Semovita", "p": 1.6, "img": "img/semovita.webp"}, {"n": "Purre", "p": 1.6, "img": "img/purre.webp"}, {"n": "Amala", "p": 1.6, "img": "img/amala.webp"}, {"n": "Wheat", "p": 1.6, "img": "img/wheat.webp"}, {"n": "Garri", "p": 1.6, "img": "img/garri.webp"}, {"n": "White Rice", "p": 1.6, "img": "img/white-rice.webp"}];const REVIEW="https://g.page/r/CbGrePXeiGG7EBM/review";
+const T={
+ de:{kitchen:'African Restaurant Graz',back:'← Zur Startseite',hint:'<b>Neu bei nigerianischem Essen?</b> Tippe auf ein Gericht: Wir erklären, was drin ist. Zu jeder Suppe gehört ein Swallow oder Reis (je 1,60 €).',
+  revH:'Hat es geschmeckt?',revP:'Eine kurze Google-Bewertung hilft uns sehr, damit neue Gäste uns finden. Dauert 30 Sekunden.',revB:'Jetzt auf Google bewerten',
+  pair:'Dazu: Swallow oder Reis',add:'Auf meine Liste',sub:'Zeig die Liste einfach beim Bestellen.',list:'Meine Liste',items:'Gerichte',total:'Zusammen',empty:'Noch nichts auf der Liste.',ask:'auf Anfrage',
+  legal:'Alle Preise in Euro inkl. MwSt. Fragen zu Zutaten und Allergenen beantworten wir gern persönlich.'},
+ en:{kitchen:'African Restaurant Graz',back:'← Back to homepage',hint:'<b>New to Nigerian food?</b> Tap any dish and we explain what is in it. Every soup comes with a swallow or rice (1.60 € each).',
+  revH:'Enjoyed your meal?',revP:'A quick Google review really helps new guests find us. Takes 30 seconds.',revB:'Review us on Google',
+  pair:'With it: swallow or rice',add:'Add to my list',sub:'Just show your list when ordering.',list:'My list',items:'dishes',total:'Total',empty:'Your list is empty.',ask:'on request',
+  legal:'All prices in euro incl. VAT. Ask us about ingredients and allergens – we are happy to help.'}
+};
+let L='de',LIST=[];
+try{LIST=JSON.parse(localStorage.getItem('jollofList')||'[]')}catch(e){}
+const save=()=>{try{localStorage.setItem('jollofList',JSON.stringify(LIST))}catch(e){}};
+const eur=n=>n==null?T[L].ask:n.toFixed(2).replace('.',L==='de'?',':'.')+' €';
+const byId=id=>M.find(x=>x.id===id);
+function render(){
+  const t=T[L];
+  document.querySelectorAll('[data-t]').forEach(e=>{if(t[e.dataset.t]!=null)e.innerHTML=t[e.dataset.t]});
+  document.getElementById('revLink').href=REVIEW;
+  const cats=Object.keys(CATS);
+  document.getElementById('tabs').innerHTML=cats.map((c,i)=>'<a href="#c'+i+'" class="'+(i==0?'on':'')+'">'+CATS[c][L]+'</a>').join('');
+  const row=m=>{const [n,d]=m[L];const c=LIST.filter(x=>x.id===m.id).length;
+    return '<button class="item'+(m.img?'':' noimg')+'" data-id="'+m.id+'"><div><h3>'+n+(c?'<span class="cnt">'+c+'×</span>':'')+'</h3>'+(d?'<p>'+d+'</p>':'')+
+    '<span class="price">'+eur(m.p)+(m.hint?' <small>'+m.hint+'</small>':'')+'</span></div>'+(m.img?'<div class="ph"><img src="'+m.img+'" alt="" loading="lazy"></div>':'')+'</button>'};
+  document.getElementById('list').innerHTML=cats.map((c,i)=>'<h2 class="cat" id="c'+i+'">'+CATS[c][L]+'</h2>'+M.filter(m=>m.c===c).map(row).join('')).join('');
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===L));
+  bar();
+}
+function bar(){
+  const b=document.getElementById('listbar'),sum=LIST.reduce((s,x)=>s+(x.p||0),0);
+  b.classList.toggle('on',LIST.length>0);
+  b.innerHTML='<span>'+T[L].list+' · '+LIST.length+' '+T[L].items+'</span><span>'+eur(sum)+'</span>';
+}
+let side=null;
+function openItem(id){
+  const m=byId(id),t=T[L];if(!m)return;side=null;
+  const [n,d]=m[L];
+  document.getElementById('sheet').innerHTML=
+   (m.img?'<div class="hero"><img src="'+m.img+'" alt=""><button class="x" onclick="closeItem()">×</button></div>':'')+
+   '<div class="in">'+(m.img?'':'<button class="x" onclick="closeItem()">×</button>')+'<h2>'+n+'<span>'+eur(m.p)+'</span></h2>'+(d?'<p class="what">'+d+'</p>':'<p class="what"></p>')+
+   (m.soup?'<div class="pairs"><h4>'+t.pair+'</h4>'+SIDES.map((s,i)=>'<button class="pair" data-s="'+i+'">'+(s.img?'<img src="'+s.img+'" alt="">':'')+'<div>'+s.n+'</div><em>+ '+eur(s.p)+'</em></button>').join('')+'</div>':'')+
+   '<button class="order" data-add="'+m.id+'">'+t.add+'</button><p class="sub">'+t.sub+'</p></div>';
+  document.body.classList.add('open');
+}
+function showList(){
+  const t=T[L],sum=LIST.reduce((s,x)=>s+(x.p||0),0);
+  document.getElementById('sheet').innerHTML='<div class="in"><button class="x" onclick="closeItem()">×</button><h2>'+t.list+'</h2>'+
+    (LIST.length?LIST.map((x,i)=>'<div class="lrow"><span>'+x.n+'</span><span>'+eur(x.p)+' <button data-del="'+i+'">×</button></span></div>').join(''):'<p class="what">'+t.empty+'</p>')+
+    '<div class="ltotal"><span>'+t.total+'</span><span>'+eur(sum)+'</span></div><p class="sub">'+t.sub+'</p></div>';
+  document.body.classList.add('open');
+}
+function closeItem(){document.body.classList.remove('open')}
+document.addEventListener('click',e=>{
+  const it=e.target.closest('.item');if(it)return openItem(it.dataset.id);
+  const p=e.target.closest('.pair');if(p){document.querySelectorAll('.pair').forEach(x=>x.classList.toggle('on',x===p&&!x.classList.contains('on')));side=p.classList.contains('on')?SIDES[p.dataset.s]:null;return}
+  const a=e.target.closest('[data-add]');if(a){const m=byId(a.dataset.add);LIST.push({id:m.id,n:m[L][0],p:m.p});if(side)LIST.push({id:'side',n:side.n,p:side.p});save();closeItem();return render()}
+  const dl=e.target.closest('[data-del]');if(dl){LIST.splice(+dl.dataset.del,1);save();render();return showList()}
+  if(e.target.closest('#listbar'))return showList();
+  const lb=e.target.closest('.lang button');if(lb){L=lb.dataset.l;document.documentElement.lang=L;return render()}
+  if(e.target.id==='sbg')closeItem();
+});
+render();
+const TISCH=new URLSearchParams(location.search).get("tisch");if(TISCH&&/^[0-9]{1,3}$/.test(TISCH))document.getElementById("tischzeile").insertAdjacentHTML("beforeend","<b style=\"float:right;color:var(--green)\">Tisch "+TISCH+"</b>");
+</script>
+</body>
+</html>
