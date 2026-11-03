@@ -52,8 +52,8 @@ h2.cat{font:400 22px var(--serif);padding:26px 16px 6px;scroll-margin-top:52px}
 .item .price small{font-weight:500;color:var(--muted);font-size:12.5px}
 .item .ph{width:92px;height:92px;border-radius:8px;overflow:hidden;background:var(--cream)}
 .item .ph img{width:100%;height:100%;object-fit:cover}
-.item .ph.kombi{width:150px;display:flex;align-items:center;justify-content:center;gap:2px;background:#fff;border:1px solid #ececea;padding:4px}
-.item .ph.kombi img{width:44%;height:auto;max-height:100%;object-fit:contain;filter:drop-shadow(0 4px 5px rgba(0,0,0,.15))}
+.item .ph.kombi{width:164px;display:flex;align-items:center;justify-content:center;gap:2px;background:#fff;border:1px solid #ececea;padding:4px}
+.item .ph.kombi img{width:46%;height:auto;max-height:100%;object-fit:contain;filter:drop-shadow(0 4px 5px rgba(0,0,0,.15))}
 .item .ph.kombi i,.sheet .hero.kombi i{flex:none;display:grid;place-items:center;border-radius:50%;background:#3f8a2e;color:#fff;font-style:normal;font-weight:800;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.18)}
 .item .ph.kombi i{width:20px;height:20px;font-size:13px}
 .sheet .hero.kombi{background:#fff;display:flex;align-items:center;justify-content:center;gap:12px;padding:20px}
@@ -89,10 +89,11 @@ h2.cat{font:400 22px var(--serif);padding:26px 16px 6px;scroll-margin-top:52px}
 .sheet .what{margin:12px 0 16px;font-size:15px;color:#3a443a}
 .pairs h4{font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 .pairs{margin-bottom:18px}
-.pair{display:flex;align-items:center;gap:12px;width:100%;padding:9px;border:1.5px dashed #c9d3b8;border-radius:8px;margin-bottom:8px;text-align:left}
-.pair img{width:46px;height:46px;border-radius:6px;object-fit:cover;background:var(--cream)}
-.pair div{flex:1;font-weight:600}
-.pair em{font-style:normal;font-weight:700;color:var(--red)}
+.prow{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.prow::-webkit-scrollbar{display:none}
+.pair{flex:none;width:84px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 4px;border:1.5px dashed #c9d3b8;border-radius:10px;text-align:center}
+.pair img{width:52px;height:52px;border-radius:8px;object-fit:cover;background:var(--cream)}
+.pair div{font-weight:600;font-size:12px;line-height:1.2}
+.pair em{font-style:normal;font-weight:700;font-size:11.5px;color:var(--red)}
 .pair.on{border-style:solid;border-color:var(--green);background:#eef4e6}
 .sheet .order{display:flex;align-items:center;justify-content:center;height:52px;border-radius:8px;background:var(--green);color:#fff;font-weight:700;font-size:16px;width:100%}
 .sheet .sub{font-size:12.5px;color:var(--muted);text-align:center;margin-top:9px}
@@ -172,7 +173,7 @@ function openItem(id){
   document.getElementById('sheet').innerHTML=
    (m.cut1?'<div class="hero kombi"><img src="'+m.cut1+'" alt=""><i>+</i><img src="'+m.cut2+'" alt="">':m.img?'<div class="hero"><img src="'+m.img+'" alt="">'+'<button class="x" onclick="closeItem()">×</button></div>':'')+
    '<div class="in">'+(m.img?'':'<button class="x" onclick="closeItem()">×</button>')+'<h2>'+n+'<span>'+eur(m.p)+'</span></h2>'+(d?'<p class="what">'+d+'</p>':'<p class="what"></p>')+(m.z&&m.z[L]?'<p class="zut"><b>'+t.zut+':</b> '+m.z[L]+'</p>':'')+
-   (PAIRS=m.soup?SIDES:(m.pairs||[]),PAIRS.length?'<div class="pairs"><h4>'+(m.soup?t.pair:t.pairR)+'</h4>'+PAIRS.map((s,i)=>'<button class="pair" data-s="'+i+'">'+(s.img?'<img src="'+s.img+'" alt="">':'')+'<div>'+s.n+'</div><em>+ '+eur(s.p)+'</em></button>').join('')+'</div>':'')+
+   (PAIRS=m.soup?SIDES:(m.pairs||[]),PAIRS.length?'<div class="pairs"><h4>'+(m.soup?t.pair:t.pairR)+'</h4><div class="prow">'+PAIRS.map((s,i)=>'<button class="pair" data-s="'+i+'">'+(s.img?'<img src="'+s.img+'" alt="">':'')+'<div>'+s.n+'</div><em>+ '+eur(s.p)+'</em></button>').join('')+'</div></div>':'')+
    '<button class="order" data-add="'+m.id+'">'+t.add+'</button><p class="sub">'+t.sub+'</p></div>';
   document.body.classList.add('open');
 }
