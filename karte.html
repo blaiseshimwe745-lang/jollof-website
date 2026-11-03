@@ -172,7 +172,7 @@ function openItem(id){
   const m=byId(id),t=T[L];if(!m)return;side=null;
   const [n,d]=m[L];
   document.getElementById('sheet').innerHTML=
-   (m.cut1?'<div class="hero kombi"><img src="'+m.cut1+'" alt=""><i>+</i><img src="'+m.cut2+'" alt="">':m.img?'<div class="hero"><img src="'+m.img+'" alt="">'+'<button class="x" onclick="closeItem()">×</button></div>':'')+
+   (m.cut1?'<div class="hero kombi"><img src="'+m.cut1+'" alt=""><i>+</i><img src="'+m.cut2+'" alt=""><button class="x" onclick="closeItem()">×</button></div>':m.img?'<div class="hero"><img src="'+m.img+'" alt="">'+'<button class="x" onclick="closeItem()">×</button></div>':'')+
    '<div class="in">'+(m.img?'':'<button class="x" onclick="closeItem()">×</button>')+'<h2>'+n+'<span>'+eur(m.p)+'</span></h2>'+(d?'<p class="what">'+d+'</p>':'<p class="what"></p>')+(m.z&&m.z[L]?'<p class="zut"><b>'+t.zut+':</b> '+m.z[L]+'</p>':'')+
    (PAIRS=m.soup?SIDES:(m.pairs||[]),PAIRS.length?'<div class="pairs"><h4>'+(m.soup?t.pair:t.pairR)+'</h4><div class="prow">'+PAIRS.map((s,i)=>'<button class="pair" data-s="'+i+'">'+(s.img?'<img src="'+s.img+'" alt="">':'')+'<div>'+s.n+'</div><em>+ '+eur(s.p)+'</em></button>').join('')+'</div></div>':'')+
    '<button class="order" data-add="'+m.id+'">'+t.add+'</button><p class="sub">'+t.sub+'</p></div>';
