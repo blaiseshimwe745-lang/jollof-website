@@ -44,7 +44,7 @@
 
 <div class="usps"><div class="wrap">
   <div class="usp"><b>Suppen ab 10,00 €</b><span>Egusi, Okro, Ofe Akwu, Pepper Soup …</span></div>
-  <div class="usp"><b>Swallow je 1,60 €</b><span>Pounded Yam, Amala, Semovita, Garri</span></div>
+  <div class="usp"><b>Swallow inklusive</b><span>Pounded Yam, Amala, Semovita, Garri</span></div>
   <div class="usp"><b>Über 50 Gerichte</b><span>Reis, Suppen, Fleisch, Fisch, Snacks</span></div>
   <div class="usp"><b>Getränke aus Nigeria</b><span>Maltina, Gulder, Guinness, Palm Drink</span></div>
 </div></div>
@@ -89,7 +89,7 @@
       <p class="tag">Dein Teller. Deine Kombi.</p>
       <ul class="steps">
         <li><i>1</i><span><b>Suppe wählen</b>Egusi, Okro, Ofe Akwu … ab 10,00 €</span></li>
-        <li><i>2</i><span><b>Swallow dazu</b>Pounded Yam, Amala, Semovita, Garri oder Reis – 1,60 €</span></li>
+        <li><i>2</i><span><b>Swallow dazu</b>Pounded Yam, Amala, Semovita oder Garri – im Suppenpreis inklusive</span></li>
         <li><i>3</i><span><b>Abzupfen &amp; tunken</b>Ein Stück formen, Suppe aufnehmen. So isst man in Nigeria.</span></li>
       </ul>
       <a class="btn btn-dark" href="speisekarte.html">Alle Suppen ansehen</a>
@@ -152,7 +152,7 @@
 </section>
 
 <script>
-const C=[{"s": "Egusi Soup", "si": "img/cut/egusi-soup.webp", "w": "Pounded Yam", "wi": "img/cut/pounded-yam.webp", "p": 11.6}, {"s": "Stew", "si": "img/cut/stew.webp", "w": "White Rice", "wi": "img/cut/white-rice.webp", "p": 11.6}, {"s": "Ofe Akwu", "si": "img/cut/ofe-akwu.webp", "w": "Rice and Beans", "wi": "img/cut/rice-and-beans.webp", "p": 12.6}, {"s": "Okro Soup", "si": "img/cut/okro-soup.webp", "w": "Semovita", "wi": "img/cut/semovita.webp", "p": 11.6}, {"s": "Afang Soup", "si": "img/cut/afang-soup.webp", "w": "Pounded Yam", "wi": "img/cut/pounded-yam.webp", "p": 13.2}, {"s": "Vegetable Soup", "si": "img/cut/vegetable-soup.webp", "w": "Amala", "wi": "img/cut/amala.webp", "p": 13.6}];let ci=0,ct;
+const C=[{"s": "Egusi Soup", "si": "img/cut/egusi-soup.webp", "w": "Pounded Yam", "wi": "img/cut/pounded-yam.webp", "p": 11.6}, {"s": "Stew", "si": "img/cut/stew.webp", "w": "White Rice", "wi": "img/cut/white-rice.webp", "p": 11.6}, {"s": "Ofe Akwu", "si": "img/cut/ofe-akwu.webp", "w": "Rice and Beans", "wi": "img/cut/rice-and-beans.webp", "p": 14.2}, {"s": "Okro Soup", "si": "img/cut/okro-soup.webp", "w": "Semovita", "wi": "img/cut/semovita.webp", "p": 11.6}, {"s": "Afang Soup", "si": "img/cut/afang-soup.webp", "w": "Pounded Yam", "wi": "img/cut/pounded-yam.webp", "p": 13.2}, {"s": "Vegetable Soup", "si": "img/cut/vegetable-soup.webp", "w": "Amala", "wi": "img/cut/amala.webp", "p": 13.6}];let ci=0,ct;
 function showC(i){ci=(i+C.length)%C.length;const c=C[ci];stage.classList.remove('swap');void stage.offsetWidth;stage.classList.add('swap');
   stSoup.src=c.si;stSoup.alt=c.s;stSide.src=c.wi;stSide.alt=c.w;stName.textContent=c.s+' + '+c.w;
   stPrice.innerHTML=c.p.toFixed(2).replace('.',',')+'<small>€</small>';
